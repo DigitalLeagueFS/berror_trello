@@ -1,5 +1,10 @@
 class ColumnsController < ApplicationController
 
+  def show
+    @board = Board.find(params[:board_id])
+    @column = @board.columns.find(params[:id])
+  end
+
   def create
     @board = Board.find(params[:board_id])
     @column = @board.columns.create(column_params)
@@ -9,12 +14,12 @@ class ColumnsController < ApplicationController
   def destroy
     @board = Board.find(params[:board_id])
     @column = @board.columns.find(params[:id])
-    @culumn.destroy
+    @column.destroy
     redirect_to board_path(@board)
   end
 
   private
     def column_params
-      params.require(:column).permit(:name, :background_img)
+      params.require(:column).permit(:name, :background_color)
     end
 end

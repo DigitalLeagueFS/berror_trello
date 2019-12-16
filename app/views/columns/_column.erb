@@ -7,3 +7,11 @@
   <strong>Color:</strong>
   <%= column.background_color %>
 </p>
+
+<%= link_to 'Show Column', [column.board, column] %> 
+
+<p>
+  <%= link_to 'Destroy Column', [column.board, column],
+                method: :delete,
+                data: {confirm: 'Are you sure?'}%>
+</p>
