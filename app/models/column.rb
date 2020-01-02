@@ -1,4 +1,5 @@
 class Column < ApplicationRecord
   belongs_to :board
-  validates :background_color, presence: true
+  has_many :cards
+  validates :name, presence: true
 end

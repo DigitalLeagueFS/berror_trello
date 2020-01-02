@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_100236) do
+ActiveRecord::Schema.define(version: 2019_12_17_131005) do
 
   create_table "boards", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 2019_12_16_100236) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "cards", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "background_color"
+    t.datetime "due"
+    t.integer "column_id", null: false
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["column_id"], name: "index_cards_on_column_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
   create_table "columns", force: :cascade do |t|
     t.string "name"
     t.string "background_color"
@@ -31,5 +44,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_100236) do
     t.index ["board_id"], name: "index_columns_on_board_id"
   end
 
+  add_foreign_key "cards", "columns"
+  add_foreign_key "cards", "users"
   add_foreign_key "columns", "boards"
 end

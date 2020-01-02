@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :boards do
-    resources :columns
+    resources :columns do
+      resources :cards
+    end
+
   end
 
   root 'welcome#index'

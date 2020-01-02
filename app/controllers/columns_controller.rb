@@ -5,6 +5,10 @@ class ColumnsController < ApplicationController
     @column = @board.columns.find(params[:id])
   end
 
+  def new
+    @column = Column.new
+  end
+
   def create
     @board = Board.find(params[:board_id])
     @column = @board.columns.create(column_params)

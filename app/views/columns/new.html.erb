@@ -1,14 +1,13 @@
 <%= form_with(model: [@board, @board.columns.build], local: true) do |form| %>
-
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
-<p>
+  <p>
     <%= form.label :background_color %><br>
     <%= form.text_field :background_color %>
-</p>
-<p>
-  <%= form.submit %>
-</p>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>
