@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2019_12_17_131005) do
     t.string "background_color"
     t.datetime "due"
     t.integer "column_id", null: false
-    t.integer "user_id"
+    #t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["column_id"], name: "index_cards_on_column_id"
-    t.index ["user_id"], name: "index_cards_on_user_id"
+      #t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "columns", force: :cascade do |t|
