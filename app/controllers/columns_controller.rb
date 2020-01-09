@@ -1,5 +1,6 @@
 class ColumnsController < ApplicationController
 
+
   def show
     @board = Board.find(params[:board_id])
     @column = @board.columns.find(params[:id])

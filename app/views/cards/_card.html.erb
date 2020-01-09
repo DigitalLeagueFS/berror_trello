@@ -1,0 +1,15 @@
+<p>
+  <strong>Name:</strong>
+  <%= card.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= card.description %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Card',  [column.board, column],
+              method: :delete,
+              data: {confirm: 'Are you sure?'}%>
+</p>
