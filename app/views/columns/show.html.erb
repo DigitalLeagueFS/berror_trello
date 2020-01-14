@@ -8,10 +8,13 @@
   <%= @column.background_color %>
 </p>
 
+<%= link_to 'Edit (Fake)'%>
+<%= link_to 'Back', board_path(@board) %>
+
 <h2>Cards:</h2>
 <%= render @column.cards %>
 <h2>Add a card:</h2>
-<%= form_with(model: [@board, @column, @column.cards.build], local: true) do |form| %>
+<%= form_with(model: @column.cards.build, local: true) do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>

@@ -13,11 +13,12 @@
   <%= @board.progress %>
 </p>
 
+<%= link_to 'Edit', edit_board_path(@board) %>
+<%= link_to 'Back', boards_path %>
+
 <h2>Columns</h2>
 <%= render @board.columns %>
 
 <h2>Add a column:</h2>
 <%= render 'columns/form' %>
 
-<%= link_to 'Edit', edit_board_path(@board) %>
-<%= link_to 'Back', boards_path %>

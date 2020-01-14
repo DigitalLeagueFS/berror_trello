@@ -1,5 +1,7 @@
 class CardsController < ApplicationController
 
+
+
   def show
     @column = Column.find(params[:column_id])
     @card = @column.cards.find(params[:id])
@@ -13,7 +15,7 @@ class CardsController < ApplicationController
     @board = Board.find(params[:board_id])
     @column = @board.columns.find(params[:column_id])
     @card = @column.cards.create(card_params)
-    redirect_to board_columns_path(@column)
+    redirect_to board_column_path(@board,@column)
   end
 
   def destroy
@@ -21,7 +23,7 @@ class CardsController < ApplicationController
     @column = @board.columns.find(params[:column_id])
     @card = @column.cards.find(params[:id])
     @card.destroy
-    redirect_to board_path(@board)
+    redirect_to board_column_path(@board,@column)
   end
 
   private

@@ -12,6 +12,18 @@ class ColumnsController < ApplicationController
     redirect_to boards_path(@board)
   end
 
+  def update
+    @board = Board.find(params[:board_id])
+    @column = @board.columns.find(params[:id])
+
+    if @column.update(column_params)
+      redirect_to board_columns_path(@board, @column)
+
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @board = Board.find(params[:board_id])
     @column = @board.columns.find(params[:id])

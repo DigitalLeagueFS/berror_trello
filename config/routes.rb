@@ -2,9 +2,17 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :boards do
-    resources :columns do
-      resources :cards
-    end
+    resources :columns
+  end
+
+  resources :cards, only: [:destroy, :index]
+
+  resources :users do
+    resources :teams
+  end
+
+  namespace :api do
+    resources :users
   end
 
   root 'welcome#index'
